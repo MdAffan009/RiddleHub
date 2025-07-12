@@ -1,0 +1,15 @@
+{
+  "name": "riddlehub",
+  "version": "1.0.0",
+  "description": "This is the server of RiddleHub, A website where Riddle geeks and nerds can solve riddles.",
+  "keywords": [
+    "Riddler"
+  ],
+  "license": "ISC",
+  "author": "Robin Parker",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
