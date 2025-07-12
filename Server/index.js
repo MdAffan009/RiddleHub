@@ -10,8 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 // Sample API route
-app.get('/api/hello', (res) => {
-  res.json({ message: 'Hello from Express!' });
+app.get('/api/hello', (req, res) => {
+  res.send('Hello Robin');
 });
 
 const PORT = 5000;
