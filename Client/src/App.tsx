@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
-import { Box } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 
 function App() {
   const [message, setMessage] = useState('Loading...');
@@ -15,9 +15,18 @@ function App() {
   return (
 
     <>
-      <Box margin={10}>
-      <Navbar />
-      </Box>
+      <Grid
+        templateAreas={`"nav" "main"`}
+        templateColumns={'1fr'}
+      >
+
+        <GridItem area="nav" marginTop={4}>
+
+          <Navbar />
+
+        </GridItem>
+
+      </Grid>
     </>
 
   );
