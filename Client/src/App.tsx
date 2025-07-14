@@ -1,32 +1,28 @@
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Separator } from '@chakra-ui/react';
 
 function App() {
-  const [message, setMessage] = useState('Loading...');
 
-  useEffect(() => {
-    fetch('/api/hello') // Proxy will redirect this to Express
-      .then((res) => res.text())
-      .then((data) => setMessage(data))
-      .catch(() => setMessage('Error connecting to server.'));
-  }, []);
 
   return (
 
     <>
-      <Grid
-        templateAreas={`"nav" "main"`}
-        templateColumns={'1fr'}
-      >
 
-        <GridItem area="nav" marginTop={4}>
+        <Grid
+          templateAreas={`"nav" "main"`}
+          templateColumns={'1fr'}
+        >
 
-          <Navbar />
+          <GridItem area="nav" marginTop={4}>
 
-        </GridItem>
+            <Navbar />
 
-      </Grid>
+            <Separator background={"gray.900"}/>
+
+          </GridItem>
+
+
+        </Grid>
     </>
 
   );

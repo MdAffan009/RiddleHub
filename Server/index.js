@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Sample API route
-app.get('/api/hello', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello Robin');
 });
 

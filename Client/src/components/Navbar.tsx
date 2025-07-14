@@ -1,36 +1,22 @@
-import { Button, SimpleGrid, Tabs, Text } from "@chakra-ui/react";
-
+import { Box, Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 
 const Navbar = () => {
     return (
         <SimpleGrid>
 
+            <Box>
+                <HStack justifyContent="center" spaceX="110px">
 
-            <Tabs.Root variant="plain">
-                <Tabs.List paddingX={4} spaceX={20}>
+                    <Text fontSize={32}>RiddleHub</Text>
 
-                    <Text fontSize={30}>RiddleHub</Text>
+                    <Button variant="ghost"><Text fontSize={20}>Home</Text></Button>
+                    <Button variant="ghost"><Text fontSize={20}>Sign In</Text></Button>
+                    <Button variant="ghost"><Text fontSize={20}>Log In</Text></Button>
+                    <Button variant="ghost"><Text fontSize={20}>API</Text></Button>
 
-                    <Tabs.Trigger value="Home">
-                        <Button variant="ghost" fontSize={20}>Home</Button>
-                    </Tabs.Trigger>
 
-                    <Tabs.Trigger value="Sign In">
-                        <Button variant="ghost" fontSize={20}>Sign In</Button>
-                    </Tabs.Trigger>
-
-                    <Tabs.Trigger value="Log In">
-                        <Button variant="ghost" fontSize={20}>Log In</Button>
-                    </Tabs.Trigger>
-
-                    <Tabs.Trigger value="API">
-                        <Button variant="ghost" fontSize={20}>API</Button>
-                    </Tabs.Trigger>
-
-                </Tabs.List>
-
-                <Tabs.Content value="Home">This is Home</Tabs.Content>
-            </Tabs.Root>
+                </HStack>
+            </Box>
         </SimpleGrid>
     )
 }
