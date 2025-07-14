@@ -1,4 +1,5 @@
 import { Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 interface Pages {
     onSelect: (page: string) => void;
@@ -6,7 +7,7 @@ interface Pages {
 
 const Navbar = ({onSelect} : Pages) => {
 
-        const pages = ["Home", "Leaderboard", "About", "API"];
+        const pages = ["Home", "Login", "API"];
 
     return (
         <SimpleGrid>
@@ -16,6 +17,8 @@ const Navbar = ({onSelect} : Pages) => {
                 <Text fontSize={32}>RiddleHub</Text>
 
                 {pages.map(page => <Button variant="ghost" key={page} onClick={() => onSelect(page)}><Text fontSize={20}>{page}</Text></Button>)}
+
+                <ColorModeSwitch />
 
             </HStack>
         </SimpleGrid>
