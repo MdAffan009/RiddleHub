@@ -1,24 +1,21 @@
-import { Box, Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import { Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 
 const Navbar = () => {
+
+        const pages = ["Home", "Leaderboard", "About", "API"];
+
     return (
         <SimpleGrid>
 
-            <Box>
-                <HStack justifyContent="center" spaceX="110px">
+            <HStack justifyContent="center" spaceX="90px">
 
-                    <Text fontSize={32}>RiddleHub</Text>
+                <Text fontSize={32}>RiddleHub</Text>
 
-                    <Button variant="ghost"><Text fontSize={20}>Home</Text></Button>
-                    <Button variant="ghost"><Text fontSize={20}>Sign In</Text></Button>
-                    <Button variant="ghost"><Text fontSize={20}>Log In</Text></Button>
-                    <Button variant="ghost"><Text fontSize={20}>API</Text></Button>
+                {pages.map(page => <Button variant="ghost" key={page}><Text fontSize={20}>{page}</Text></Button>)}
 
-
-                </HStack>
-            </Box>
+            </HStack>
         </SimpleGrid>
-    )
-}
+    );
+};
 
 export default Navbar;
