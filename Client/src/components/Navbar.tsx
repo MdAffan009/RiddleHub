@@ -1,6 +1,10 @@
 import { Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 
-const Navbar = () => {
+interface Pages {
+    onSelect: (page: string) => void;
+}
+
+const Navbar = ({onSelect} : Pages) => {
 
         const pages = ["Home", "Leaderboard", "About", "API"];
 
@@ -11,7 +15,7 @@ const Navbar = () => {
 
                 <Text fontSize={32}>RiddleHub</Text>
 
-                {pages.map(page => <Button variant="ghost" key={page}><Text fontSize={20}>{page}</Text></Button>)}
+                {pages.map(page => <Button variant="ghost" key={page} onClick={() => onSelect(page)}><Text fontSize={20}>{page}</Text></Button>)}
 
             </HStack>
         </SimpleGrid>
