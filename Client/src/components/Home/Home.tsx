@@ -1,14 +1,7 @@
 import { Button, Heading, VStack, Text } from "@chakra-ui/react";
-import SignIn from "../SignIn";
-import { useState } from "react";
-
 
 
 const Home = () => {
-
-  const [showSignIn, setSignIn] = useState(false);
-
-  if (showSignIn) return <SignIn />
 
   return (
     <>
@@ -67,8 +60,8 @@ const Home = () => {
         </Text>
 
 
-        <Button marginTop={4} size={"xl"} width="150px" colorPalette="green" variant="outline" onClick={() => setSignIn(true)}>
-          Get Started
+        <Button marginTop={4} size={"xl"} width="150px" colorPalette="green" variant="outline">
+          <a href="/signin">Get Started</a>
         </Button>
       </VStack>
     </>

@@ -1,25 +1,26 @@
 import { Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
+import { Link } from "react-router-dom";
 
-interface Pages {
-    onSelect: (page: string) => void;
-}
-
-const Navbar = ({onSelect} : Pages) => {
-
-        const pages = ["Home", "Login", "API"];
+const Navbar = () => {
+    const pages = [
+        { name: "Home", path: "/" },
+        { name: "Login", path: "/login" },
+        { name: "API", path: "/API" },
+    ];
 
     return (
         <SimpleGrid>
-
-            <HStack justifyContent="center" spaceX="90px">
-
+            <HStack justifyContent="center" spaceX={90}>
                 <Text fontSize={32}>RiddleHub</Text>
 
-                {pages.map(page => <Button variant="ghost" key={page} onClick={() => onSelect(page)}><Text fontSize={20}>{page}</Text></Button>)}
+                {pages.map((page) => (
+                    <Button as={Link} to={page.path} {...({} as any)} variant="ghost" key={page.name}>
+                        <Text fontSize={20}>{page.name}</Text>
+                    </Button>
+                ))}
 
                 <ColorModeSwitch />
-
             </HStack>
         </SimpleGrid>
     );
