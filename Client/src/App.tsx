@@ -4,6 +4,7 @@ import { Grid, GridItem, Separator } from '@chakra-ui/react';
 import Home from './components/Home';
 import Login from './components/Login';
 import API from './components/API';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
     <>
 
       <Grid
-        templateAreas={`"nav" "main"`}
+        templateAreas={`"nav" "main" "footer"`}
         templateColumns={'1fr'}
       >
 
@@ -28,12 +29,16 @@ function App() {
 
         </GridItem>
 
-        <GridItem area="main" marginTop={5}>
+        <GridItem area="main" marginTop={10}>
           {page === "Home" && <Home />}
           {page === "Login" && <Login />}
           {page === "API" && <API/>}
         </GridItem>
         
+        <GridItem area="footer" marginTop={8}>
+          <Footer />
+        </GridItem>
+
       </Grid>
     </>
 
