@@ -1,20 +1,48 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 const app = express();
-
-// Enable CORS (Cross-Origin Resource Sharing)
 app.use(cors());
-
-// Parse JSON bodies (POST requests)
 app.use(express.json());
 
-// Sample API route
-app.get('/', (req, res) => {
-  res.send('Hello Robin');
+// 🔌 Connect to MongoDB
+mongoose
+  .connect("mongodb://127.0.0.1:25000/riddlehub", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
+// 👤 Define User Schema
+const userSchema = new mongoose.Schema({
+  name: String,
+  username: String,
+  email: String,
+  password: String,
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server is running at http://localhost:${PORT}`);
+const User = mongoose.model("User", userSchema);
+
+// 🎯 API to receive signup form
+app.post("/server/signin", async (req, res) => {
+  try {
+
+    const { name, username, email, password } = req.body;
+    const newUser = new User({ name, username, email, password });
+
+    await newUser.save();
+    res.status(201).json({ success: true, message: "User saved to MongoDB!" });
+  } 
+
+  catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+ 
+app.listen(5000, () => {
+  console.log(`✅ Server is running at http://localhost:5000`);
 });

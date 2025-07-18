@@ -1,0 +1,28 @@
+# Ignore node_modules (common for both Client and Server)
+Client/node_modules/
+Server/node_modules/
+
+# Ignore environment files (usually contain secrets)
+Client/.env
+Server/.env
+.env
+
+# Ignore build or dist folders (if any)
+Client/build/
+Server/build/
+Client/dist/
+Server/dist/
+
+# Ignore logs
+*.log
+npm-debug.log*
+
+# Ignore database folder (as you asked)
+Database/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
